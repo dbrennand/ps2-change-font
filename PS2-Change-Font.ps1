@@ -66,7 +66,7 @@ $GoogleFontsEndpoint = "https://www.googleapis.com/webfonts/v1/webfonts"
 # Start Planetside 2
 Write-Output -InputObject "Starting Planetside 2..."
 Start-Process steam://rungameid/218230
-Read-Host -Prompt "Wait for the green Planetside 2 PLAY button to light up green. Press any key to continue"
+Read-Host -Prompt "Wait for the green Planetside 2 PLAY button to light up green. Press the ENTER key to continue"
 
 # Get a list of fonts from the Google Fonts API
 try {
