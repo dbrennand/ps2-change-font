@@ -97,3 +97,4 @@ catch {
 }
 
 Write-Output -InputObject "Finished. Happy cert farming :)"
+Start-Sleep -Seconds 3
