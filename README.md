@@ -28,3 +28,15 @@ From a Administrator PowerShell terminal, run the following commands:
 > Example for D:\: `-PS2InstallPath "D:\SteamLibrary\steamapps\common\PlanetSide 2"`
 
 4. Right click the script on your desktop and select *Run with PowerShell*.
+
+### Font Variant
+
+To list available font variants for a font family, run the script with the `-ListFontVariants` switch: `.\PS2-Change-Font.ps1 -APIKey "Insert your API Key here." -FontFamily "Insert chosen font family here." -ListFontVariants`
+
+Below shows example font variants for the Roboto font family:
+
+```
+Available font variants for font family Roboto: 100 100italic 300 300italic regular italic 500 500italic 700 700italic 900 900italic
+```
+
+By default the script will use the font variant **regular**. To specify a different font variant, provide the `-FontVariant` parameter. E.g. `... -FontVariant "300"` or `... -FontVariant "100"`
