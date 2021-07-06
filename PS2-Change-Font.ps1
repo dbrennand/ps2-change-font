@@ -87,7 +87,8 @@ try {
     Write-Output -InputObject "Downloading font $($FontFamily) and overwrite default Planetside 2 font Geo-Md.ttf."
     if ($PS2InstallPath) {
         Invoke-WebRequest -Uri $SelectedFont.Files.Regular -OutFile "$PS2InstallPath\UI\Resource\Fonts\Geo-Md.ttf"
-    } else {
+    }
+    else {
         Invoke-WebRequest -Uri $SelectedFont.Files.Regular -OutFile "$(${Env:ProgramFiles(x86)})\Steam\steamapps\common\PlanetSide 2\UI\Resource\Fonts\Geo-Md.ttf"
     }
 }
