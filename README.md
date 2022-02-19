@@ -34,11 +34,16 @@ From a Administrator PowerShell terminal, run the following commands:
     >
     > If you have PlanetSide 2 installed somewhere other than `C:\`, add the following to the end of the command above to specify the absolute path to your PlanetSide 2 installation.
     >
-    > Example for `D:\`: `... -PS2InstallPath "D:\SteamLibrary\steamapps\common\PlanetSide 2"`
+    > Example for `D:\`: `... -PS2InstallPath 'D:\SteamLibrary\steamapps\common\PlanetSide 2'`
 
     ```powershell
     New-Item -Path "$($HOME)\Desktop\PS2-Change-Font.ps1"
+    # Example 1: Using parameter defaults
     Set-Content -Path "$($HOME)\Desktop\PS2-Change-Font.ps1" -Value "& $PS2ChangeFontPath -APIKey '<Google Fonts API Key>' -FontFamily '<Font Family>'"
+    # Example 2: Using -PS2InstallPath parameter
+    Set-Content -Path "$($HOME)\Desktop\PS2-Change-Font.ps1" -Value "& $PS2ChangeFontPath -APIKey '<Google Fonts API Key>' -FontFamily '<Font Family>' -PS2InstallPath 'D:\SteamLibrary\steamapps\common\PlanetSide 2'"
+    # Example 3: Using -FontVariant parameter
+    Set-Content -Path "$($HOME)\Desktop\PS2-Change-Font.ps1" -Value "& $PS2ChangeFontPath -APIKey '<Google Fonts API Key>' -FontFamily '<Font Family>' -FontVariant '100'"
     ```
 
 4. Right click the script on your desktop and click **Run with PowerShell**.
@@ -61,7 +66,7 @@ By default the script will use the font variant **regular**. To specify a differ
 
 ```powershell
 # Example 1
-... -FontVariant "100"
+... -FontVariant '100'
 # Example 2
-... -FontVariant "100italic"
+... -FontVariant '100italic'
 ```
