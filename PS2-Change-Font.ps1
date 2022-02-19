@@ -1,7 +1,7 @@
 <#
 MIT License
 
-Copyright (c) 2021 dbrennand
+Copyright (c) 2022 dbrennand
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,6 @@ SOFTWARE.
     The font family to download and use in-game.
 
 .PARAMETER FontVariant
-    No not a Loki variant ;-)
     The font variant of the font family to use. Defaults to: "regular".
 
 .PARAMETER ListFontVariants
@@ -78,14 +77,14 @@ param (
 )
 
 # Declare constant variables
-$Version = "0.0.1"
+$Version = "0.0.2"
 $GoogleFontsEndpoint = "https://www.googleapis.com/webfonts/v1/webfonts"
 
 # Start Planetside 2
 if (-not $ListFontVariants) {
     Write-Output -InputObject "Starting Planetside 2..."
     Start-Process steam://rungameid/218230
-    Read-Host -Prompt "Wait for the green Planetside 2 PLAY button to light up green. Press the ENTER key to continue"
+    Read-Host -Prompt "Wait for the green Planetside 2 PLAY button to light up green. Press the ENTER key to continue."
 }
 
 # Get a list of fonts from the Google Fonts API
@@ -111,13 +110,13 @@ if ($ListFontVariants) {
 # Download the specified font and overwrite Planetside 2's existing font Geo-Md.ttf
 ## Check font variant for specified font family is available. If not, fallback to regular
 if (-not $SelectedFont.Files.$FontVariant) {
-    Write-Warning -Message "Select font variant $FontVariant is not available. Falling back to regular."
+    Write-Warning -Message "Selected font variant $($FontVariant) is not available. Falling back to regular."
     $FontVariant = "regular"
 }
 try {
-    Write-Output -InputObject "Downloading font $($FontFamily) and overwrite default Planetside 2 font Geo-Md.ttf."
+    Write-Output -InputObject "Downloading font $($FontFamily) and overwriting default Planetside 2 font Geo-Md.ttf."
     if ($PS2InstallPath) {
-        Invoke-WebRequest -Uri $SelectedFont.Files.$FontVariant -OutFile "$PS2InstallPath\UI\Resource\Fonts\Geo-Md.ttf"
+        Invoke-WebRequest -Uri $SelectedFont.Files.$FontVariant -OutFile "$($PS2InstallPath)\UI\Resource\Fonts\Geo-Md.ttf"
     }
     else {
         Invoke-WebRequest -Uri $SelectedFont.Files.$FontVariant -OutFile "$(${Env:ProgramFiles(x86)})\Steam\steamapps\common\PlanetSide 2\UI\Resource\Fonts\Geo-Md.ttf"
